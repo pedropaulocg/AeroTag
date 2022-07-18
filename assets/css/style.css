@@ -1,0 +1,158 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#app {
+    width: 100%;
+    display: flex;
+    font-family: 'Roboto';
+}
+.navBar {
+    flex-basis: 13%;
+    border-right: 1px solid black;
+    padding: 1rem;
+    height: 100vh;
+}
+.navBar img {
+    width: 250px;
+}
+.navBar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 0 !important;
+}
+.navBar li {
+    padding: -1rem;
+    padding: 20px 0;
+    padding-left: 4rem;
+    font-size: 1.5rem;
+}
+.activeIcon {
+    background-color: #3384E3;
+}
+.main {
+    flex-basis: 87%;
+
+}
+.header {
+    width: 100%;
+    background-color: #3384E3;
+    height: 55px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 2rem;
+}
+.profile {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: lightgray;
+}
+.content {
+    padding: 2rem;
+}
+.content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.content-right button{
+    background-color: #3384E3;
+    font-family: 'Roboto';
+    padding: 10px;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+}
+.content-body {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.Card {
+    background-color: #F9F9F9;
+    padding: 1rem;
+    width: 30%;
+    min-width: 472px;
+    box-shadow: 1px 1px 4px rgba(65, 65, 65, 0.308);
+    border-radius: 10px;
+}
+.Card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Card-header div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.Card-header p {
+    background-color: #28ff9e;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 5px;
+    margin-top: -30px;
+}
+.Card-body ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: 10px;
+}
+.Card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+.loc {
+    background-color: #3384E3;
+    border: none;
+    padding: 5px 8px;
+    color: #fff;
+    font-family: 'Roboto';
+    border-radius: 5px;
+}
+.modal-header {
+    background-color: #3384E3 !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+}
+.Btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Btn button {
+    background-color: #3384E3;
+    color: #fff;
+    font-family: 'Roboto';
+    padding: 15px 20px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px;
+}
+button {
+    cursor: pointer;
+}
+button:hover {
+    background-color: #2a6bb6;
+}
+.confirmacao {
+    list-style: none;
+}

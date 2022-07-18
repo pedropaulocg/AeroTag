@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aero Tag - Rastreamento</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="app">
+      <div class="navBar">
+        <img src="./assets/img/logo.png" alt="" />
+        <ul>
+          <li>Home</li>
+          <li class="activeIcon">Rastreamento</li>
+          <li>Chips</li>
+        </ul>
+      </div>
+      <div class="main">
+        <div class="header">
+          <div class="profile"></div>
+        </div>
+        <div class="content">
+          <div class="content-header">
+            <div class="left-header">
+              <h1>Rastreamento</h1>
+              <img src="./assets/img/tooltip.svg" alt="" />
+            </div>
+            <div class="content-right">
+              <button data-bs-toggle="modal" data-bs-target="#cadastrarChip">Cadastrar Chip</button>
+            </div>
+          </div>
+          <div class="content-body">
+            <div class="Card" v-for="chip in chips" >
+              <div class="Card-header">
+                <div>
+                  <svg
+                    width="37"
+                    height="17"
+                    viewBox="0 0 37 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6.88142 0.678871C7.26112 0.247319 7.80814 0 8.38296 0H35C36.1046 0 37 0.895431 37 2V15C37 16.1046 36.1046 17 35 17H8.38296C7.80814 17 7.26112 16.7527 6.88142 16.3211L1.1624 9.82113C0.49778 9.06576 0.49778 7.93424 1.16239 7.17887L6.88142 0.678871Z"
+                      :fill="chip.color"
+                    />
+                    <circle cx="4.5" cy="8.5" r="1.5" fill="white" />
+                  </svg>
+                  <h1>{{chip.apelido}}</h1>
+                </div>
+
+                <p v-if="chip.ativo">Ativado</p>
+                <p v-else class="bg-danger">Desativado</p>
+              </div>
+              <div v-if="chip.ativo">
+                <div class="Card-body" >
+                  <ul>
+                    <li>Número de série: {{chip.serie}}</li>
+                    <li>Ultima localização: Brasil</li>
+                    <li>Inicio do rastreio: 15/07/2022 10:32</li>
+                  </ul>
+                </div>
+                <div class="Card-bottom">
+                  <button class="loc">Localização</button>
+                </div>
+              </div>
+              <div class="desativo" v-else>
+                <p>Número de série: {{chip.serie}}</p>
+                <div class="Btn">
+                  <button @click="chip.ativo = true">Iniciar rastreio</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="cadastrarChip" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">Cadastrar Chip</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <input class="form-control mb-3" type="text" placeholder="Apelido do chip" aria-label="default input example" v-model="newApelido">
+                <input class="form-control mb-3" type="text" placeholder="Número de série" aria-label="default input example" v-model="newSerial">
+                <label for="">Cor de identificação:</label>
+                <input type="color" v-model="newColor">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Cadastrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">Cadastrar Chip</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Voce deseja cadastrar o chip?
+                <ul class="confirmacao">
+                  <li>Apelido: {{newApelido}}</li>
+                  <li>Número de série: {{ newSerial }}</li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click="addChip()">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>
