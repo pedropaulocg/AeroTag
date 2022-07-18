@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aero Tag - Rastreamento</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="./assets/js/script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="app">
+      <div class="navBar">
+        <img src="./assets/img/logo.png" alt="" />
+        <ul>
+          <li>Home</li>
+          <li class="activeIcon">Rastreamento</li>
+          <li>Chips</li>
+        </ul>
+      </div>
+      <div class="main">
+        <div class="header">
+          <div class="profile"></div>
+        </div>
+        <a href="index.html" class="voltar"><p>Voltar para Rastreamento</p></a>
+        <div class="content">
+          <div class="content-header">
+            <div class="left-header">
+              <h1>Localização</h1>
+              <img src="./assets/img/tooltip.svg" alt="" data-bs-toggle="tooltip" data-bs-placement="right" title="Para parar o rastreamento clique no botão parar. Caso sua mala esteja perdida clique no botão Bagagem perdida e entre em contato com  sua companhia aerea"/>
+            </div>
+            <div class="content-right">
+              <button data-bs-toggle="modal">Bagagem perdida</button>
+            </div>
+          </div>
+          <div class="content-body">
+            <iframe v-if="mapActive" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9440.16341462278!2d-35.20564413292248!3d-5.841557893477902!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1658164021237!5m2!1spt-BR!2sbr" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="mapaOff" v-else>
+                <p>O chip esta desligado</p>
+            </div>
+            <div class="parar" >
+                <button class="btnParar" v-if="mapActive" @click="mapActive = !mapActive">Parar Rastreamento</button>
+                <button v-else class="btnStart" @click="mapActive = !mapActive">Iniciar Rastreamento</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>

@@ -34,6 +34,7 @@
 }
 .activeIcon {
     background-color: #3384E3;
+    color: #fff;
 }
 .main {
     flex-basis: 87%;
@@ -155,4 +156,51 @@ button:hover {
 }
 .confirmacao {
     list-style: none;
+}
+.parar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.btnParar {
+    border: none;
+    background: rgb(248, 56, 56);
+    color: #fff;
+    font-family: 'Roboto';
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.btnParar:hover {
+    background: rgb(184, 43, 43) !important;
+}
+.btnStart {
+    border: none;
+    background: #3384E3;
+    color: #fff;
+    font-family: 'Roboto';
+    padding: 15px 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.voltar {
+    font-size: 12px;
+    color: rgb(53, 53, 53);
+    text-decoration: none;
+    display: block;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.mapaOff {
+    width: 100%;
+    height: 550px;
+    background: rgba(59, 59, 59, 0.521);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.mapaOff {
+    font-size: 26px;
+    color: #fff;
 }

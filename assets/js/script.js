@@ -4,7 +4,9 @@ new Vue({
         chips: [{apelido:'Mala pessoal',serie:'BR786428',color:'#E33348',ativo: true},],
         newApelido: '',
         newSerial: '',
-        newColor: ''
+        newColor: '',
+        mapActive: true,
+        page: true
     },
     methods: {
         addChip () {
